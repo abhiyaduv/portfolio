@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Skills</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="skills.html">Skills</a>
+<a href="projects.html">Projects</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+<section>
+<h1>Skills</h1>
+
+<div class="card">Python</div>
+<div class="card">MySQL</div>
+<div class="card">ASP.NET</div>
+<div class="card">Phishing</div>
+
+</section>
+<script>
+document.querySelectorAll("a").forEach(link=>{
+if(link.hostname===window.location.hostname){
+link.onclick=e=>{
+e.preventDefault();
+document.body.classList.add("slide-out");
+setTimeout(()=>window.location=link.href,400);
+}
+}
+});
+</script>
+<div id="loader">
+  <div class="spinner"></div>
+</div>
+<script>
+window.addEventListener("load",()=>{
+document.getElementById("loader").style.display="none";
+});
+</script>
+<!-- Robot Mascot -->
+<div class="robot">
+  <div class="head">
+    <div class="eye e1"></div>
+    <div class="eye e2"></div>
+  </div>
+  <div class="body"></div>
+  <div class="arm a1"></div>
+  <div class="arm a2"></div>
+</div>
+<script>
+document.querySelectorAll("a").forEach(link=>{
+if(link.hostname===window.location.hostname){
+link.addEventListener("click",function(e){
+e.preventDefault();
+document.body.classList.add("slide-out");
+setTimeout(()=>{
+window.location=this.href;
+},400);
+});
+}
+});
+</script>
+
+</body>
+</html>

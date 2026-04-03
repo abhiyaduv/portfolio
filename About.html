@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>About Me</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="skills.html">Skills</a>
+<a href="projects.html">Projects</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+<section>
+
+<h1>About Me</h1>
+
+<div class="card">
+
+<p>
+Hello! I'm <b>Abhishek Yadav</b>, a BSc IT student and
+aspiring Full Stack Developer with a strong interest in
+building secure and practical web applications.
+</p>
+
+<p>
+I have experience working with <b>ASP.NET, MySQL, and Python</b>,
+and I enjoy creating real-world projects that solve problems.
+I also completed a role as a <b>Cyber Security Intern at Tescom bussiness solution</b>,
+where I learned about security practices and system safety.
+</p>
+
+<p>
+Currently, I am looking for internship opportunities where
+I can apply my skills, learn from industry professionals,
+and grow as a developer.
+</p>
+
+<a class="btn" href="resume.pdf" download>
+Download Resume
+</a>
+
+</div>
+
+</section>
+<script>
+document.querySelectorAll("a").forEach(link=>{
+if(link.hostname===window.location.hostname){
+link.onclick=e=>{
+e.preventDefault();
+document.body.classList.add("slide-out");
+setTimeout(()=>window.location=link.href,400);
+}
+}
+});
+</script>
+
+<div id="loader">
+  <div class="spinner"></div>
+</div>
+<script>
+window.addEventListener("load",()=>{
+document.getElementById("loader").style.display="none";
+});
+</script>
+<!-- Robot Mascot -->
+<div class="robot">
+  <div class="head">
+    <div class="eye e1"></div>
+    <div class="eye e2"></div>
+  </div>
+  <div class="body"></div>
+  <div class="arm a1"></div>
+  <div class="arm a2"></div>
+</div>
+<script>
+document.querySelectorAll("a").forEach(link=>{
+if(link.hostname===window.location.hostname){
+link.addEventListener("click",function(e){
+e.preventDefault();
+document.body.classList.add("slide-out");
+setTimeout(()=>{
+window.location=this.href;
+},400);
+});
+}
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Abhishek Portfolio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="Internship.html">Internship</a>
+<a href="skills.html">Skills</a>
+<a href="projects.html">Projects</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+<section>
+<h1>Abhishek Yadav</h1>
+<p>Software Developer </p>
+
+
+</section>
+<script>
+document.querySelectorAll("a").forEach(link=>{
+if(link.hostname===window.location.hostname){
+link.onclick=e=>{
+e.preventDefault();
+document.body.classList.add("slide-out");
+setTimeout(()=>window.location=link.href,400);
+}
+}
+});
+</script>
+<div class="shapes">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+
+<div id="loader">
+  <div class="spinner"></div>
+</div>
+<script>
+window.addEventListener("load",()=>{
+document.getElementById("loader").style.display="none";
+});
+</script>
+<!-- Talking Robot -->
+<div class="robot">
+  
+  <div class="bubble" id="bubble">Hi! 👋</div>
+
+  <div class="head">
+    <div class="eye e1"></div>
+    <div class="eye e2"></div>
+  </div>
+
+  <div class="body"></div>
+  <div class="arm a1"></div>
+  <div class="arm a2"></div>
+
+</div>
+<script>
+const msgs=[
+"Hi, I'm Abhishek's bot 🤖",
+"Welcome to my portfolio!",
+"Check my projects 🚀",
+"Download my resume 📄",
+"Let's connect on LinkedIn 😄"
+];
+
+let i=0;
+setInterval(()=>{
+const b=document.getElementById("bubble");
+b.style.animation="none";
+setTimeout(()=>{
+b.innerText=msgs[i];
+b.style.animation="pop .4s";
+i=(i+1)%msgs.length;
+},100);
+},3000);
+</script>
+<script>
+document.querySelectorAll("a").forEach(link=>{
+if(link.hostname===window.location.hostname){
+link.addEventListener("click",function(e){
+e.preventDefault();
+document.body.classList.add("slide-out");
+setTimeout(()=>{
+window.location=this.href;
+},400);
+});
+}
+});
+</script>
+
+</body>
+</html>
