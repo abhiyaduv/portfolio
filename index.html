@@ -1,101 +1,394 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Abhishek Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abhishek Yadav — Full Stack Developer</title>
+<meta name="description" content="Abhishek Yadav — BSc IT student, Full Stack Developer & Cybersecurity enthusiast from Mumbai.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="Internship.html">Internship</a>
-<a href="skills.html">Skills</a>
-<a href="projects.html">Projects</a>
-<a href="contact.html">Contact</a>
+<!-- LOADER -->
+<div id="loader">
+  <canvas id="loaderCanvas"></canvas>
+  <div class="loader-text">
+    <span class="loader-name">AY</span>
+    <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
+    <div class="loader-pct" id="loaderPct">0%</div>
+  </div>
+</div>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"><div class="cursor-inner"></div></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a class="nav-logo" href="index.html">AY</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
 </nav>
 
-<section>
-<h1>Abhishek Yadav</h1>
-<p>Software Developer </p>
+<!-- THREE.JS HERO CANVAS -->
+<canvas id="heroCanvas"></canvas>
 
-
-</section>
-<script>
-document.querySelectorAll("a").forEach(link=>{
-if(link.hostname===window.location.hostname){
-link.onclick=e=>{
-e.preventDefault();
-document.body.classList.add("slide-out");
-setTimeout(()=>window.location=link.href,400);
-}
-}
-});
-</script>
-<div class="shapes">
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
-
-
-<div id="loader">
-  <div class="spinner"></div>
-</div>
-<script>
-window.addEventListener("load",()=>{
-document.getElementById("loader").style.display="none";
-});
-</script>
-<!-- Talking Robot -->
-<div class="robot">
-  
-  <div class="bubble" id="bubble">Hi! 👋</div>
-
-  <div class="head">
-    <div class="eye e1"></div>
-    <div class="eye e2"></div>
+<!-- HOME -->
+<section id="home">
+  <div class="hero-inner">
+    <div class="hero-tag">
+      <span class="dot"></span> Available for Internships
+    </div>
+    <h1 class="hero-name">
+      <span class="name-line">Abhishek</span>
+      <span class="name-line gradient-text">Yadav</span>
+    </h1>
+    <p class="hero-subtitle">
+      BSc IT Student &amp; <span class="typed-wrap"><span id="typed"></span><span class="typed-cursor">|</span></span>
+    </p>
+    <div class="hero-cta">
+      <a class="btn-primary" href="#contact">
+        <span class="btn-bg"></span><span class="btn-text">Let's Connect</span><span class="btn-arrow">→</span>
+      </a>
+      <a class="btn-ghost" href="Resume.pdf" download>Download Resume ↓</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><div class="stat-num counter" data-target="3">0</div><div class="stat-label">Projects</div></div>
+      <div class="stat-divider"></div>
+      <div class="stat-item"><div class="stat-num counter" data-target="2">0</div><div class="stat-label">Internships</div></div>
+      <div class="stat-divider"></div>
+      <div class="stat-item"><div class="stat-num counter" data-target="1">0</div><div class="stat-label">Certification</div></div>
+    </div>
   </div>
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    <div class="scroll-text">Scroll</div>
+  </div>
+</section>
 
-  <div class="body"></div>
-  <div class="arm a1"></div>
-  <div class="arm a2"></div>
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-container">
+    <div class="section-eyebrow anim-reveal">About Me</div>
+    <h2 class="section-title anim-reveal">Passionate about building<br><em>things that matter</em></h2>
+    <div class="section-rule anim-reveal"></div>
+    <div class="about-grid">
+      <div class="about-text anim-reveal">
+        <p>Hello! I'm <strong>Abhishek Yadav</strong>, a BSc IT student and aspiring Full Stack Developer with a strong interest in building secure and practical web applications.</p>
+        <p>I have experience working with <strong>ASP.NET, MySQL, and Python</strong>, and I enjoy creating real-world projects that solve problems. I also completed a role as a <strong>Cyber Security Intern at Tescom Business Solutions</strong>, where I learned about security practices and system safety.</p>
+        <p>Currently, I am looking for <strong>internship opportunities</strong> where I can apply my skills, learn from industry professionals, and grow as a developer.</p>
+        <a class="btn-primary" href="Resume.pdf" download style="margin-top:24px;display:inline-flex;width:fit-content">
+          <span class="btn-bg"></span><span class="btn-text">Download Resume ↓</span>
+        </a>
+      </div>
+      <div class="about-cards">
+        <div class="info-card card-3d"><div class="card-glow"></div><div class="info-icon">🎓</div><div><div class="label">Education</div><div class="value">BSc Information Technology</div></div></div>
+        <div class="info-card card-3d"><div class="card-glow"></div><div class="info-icon">📍</div><div><div class="label">Location</div><div class="value">Mumbai, Maharashtra, India</div></div></div>
+        <div class="info-card card-3d"><div class="card-glow"></div><div class="info-icon">💼</div><div><div class="label">Status</div><div class="value">Open to Internships</div></div></div>
+        <div class="info-card card-3d"><div class="card-glow"></div><div class="info-icon">🔒</div><div><div class="label">Interest</div><div class="value">Full Stack + Cybersecurity</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-container">
+    <div class="section-eyebrow anim-reveal">Technical Arsenal</div>
+    <h2 class="section-title anim-reveal">Skills &amp; Technologies</h2>
+    <div class="section-rule anim-reveal"></div>
+    <div class="skills-layout">
+      <div class="skills-tags-group anim-reveal">
+        <div class="skill-cat-title">Languages</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span><span class="skill-tag">C#</span><span class="skill-tag">HTML</span><span class="skill-tag">CSS</span><span class="skill-tag">JavaScript</span><span class="skill-tag">SQL</span>
+        </div>
+      </div>
+      <div class="skills-tags-group anim-reveal">
+        <div class="skill-cat-title">Frameworks & Tools</div>
+        <div class="skill-tags">
+          <span class="skill-tag">ASP.NET</span><span class="skill-tag">MySQL</span><span class="skill-tag">SQL Server</span><span class="skill-tag">NLP</span><span class="skill-tag">Streamlit</span>
+        </div>
+      </div>
+      <div class="skills-tags-group anim-reveal">
+        <div class="skill-cat-title">Cybersecurity</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Phishing Analysis</span><span class="skill-tag">Network Security</span><span class="skill-tag">OSINT</span><span class="skill-tag">Security Audits</span>
+        </div>
+      </div>
+      <div class="skills-bars anim-reveal">
+        <div class="skill-bar-item">
+          <div class="skill-bar-header"><span>Python</span><span class="pct">85%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"><div class="bar-shine"></div></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-header"><span>ASP.NET / C#</span><span class="pct">80%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"><div class="bar-shine"></div></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-header"><span>MySQL</span><span class="pct">75%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"><div class="bar-shine"></div></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-header"><span>Cybersecurity</span><span class="pct">70%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="70"><div class="bar-shine"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-container">
+    <div class="section-eyebrow anim-reveal">What I've Built</div>
+    <h2 class="section-title anim-reveal">Featured Projects</h2>
+    <div class="section-rule anim-reveal"></div>
+
+    <div class="projects-grid">
+
+      <!-- PROJECT 01 -->
+      <div class="project-card card-3d anim-reveal">
+        <div class="card-glow"></div>
+        <div class="project-num">01</div>
+        <div class="project-body">
+          <div class="project-title">Hotel Room Booking System</div>
+          <p class="project-desc">
+            A full-stack hotel booking web app built using Flask and SQLite. 
+            Users can browse rooms, check availability, and make bookings with a smooth UI. 
+            Includes backend database handling and dynamic data rendering.
+          </p>
+          <div class="project-tech">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">Flask</span>
+            <span class="tech-badge">SQLite</span>
+            <span class="tech-badge">HTML/CSS</span>
+          </div>
+          <div class="project-links">
+            <a class="proj-btn highlight" href="https://konark-hotel-restro.onrender.com/" target="_blank">
+              Live Demo ↗
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 02 -->
+      <div class="project-card card-3d anim-reveal featured">
+        <div class="card-glow cyan-glow"></div>
+        <div class="project-featured-badge">Live ↗</div>
+        <div class="project-num">02</div>
+        <div class="project-body">
+          <div class="project-title">AI Chatbot (Django + Groq API)</div>
+          <p class="project-desc">
+            Intelligent chatbot built using Django and Groq API that provides real-time 
+            conversational responses. Designed for fast AI interaction with backend API integration 
+            and dynamic frontend rendering.
+          </p>
+          <div class="project-tech">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">Django</span>
+            <span class="tech-badge">Groq API</span>
+            <span class="tech-badge">AI</span>
+          </div>
+          <div class="project-links">
+            <a class="proj-btn highlight" href="https://chatai-5b52.onrender.com" target="_blank">
+              Live Demo ↗
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 03 -->
+      <div class="project-card card-3d anim-reveal">
+        <div class="card-glow"></div>
+        <div class="project-num">03</div>
+        <div class="project-body">
+          <div class="project-title">E-Commerce Website</div>
+          <p class="project-desc">
+            Full-stack e-commerce platform with user authentication, shopping cart, 
+            and billing system. Implements CRUD operations with a robust backend 
+            using ASP.NET and SQL Server.
+          </p>
+          <div class="project-tech">
+            <span class="tech-badge">ASP.NET</span>
+            <span class="tech-badge">SQL Server</span>
+            <span class="tech-badge">C#</span>
+          </div>
+          <div class="project-links">
+            <a class="proj-btn" href="https://github.com/abhiyaduv" target="_blank">
+              GitHub →
+            </a>
+            <a class="proj-btn" href="gallery.html">Gallery →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-container">
+    <div class="section-eyebrow anim-reveal">My Journey</div>
+    <h2 class="section-title anim-reveal">Experience &amp; Certifications</h2>
+    <div class="section-rule anim-reveal"></div>
+    <div class="timeline">
+      <div class="timeline-item anim-reveal">
+        <div class="timeline-left"><div class="timeline-date">2024</div><div class="timeline-type">Virtual</div></div>
+        <div class="timeline-connector"><div class="tl-dot cyan"></div><div class="tl-line"></div></div>
+        <div class="timeline-card card-3d">
+          <div class="card-glow"></div>
+          <div class="tl-title">Data Analyst Intern</div>
+          <div class="tl-company">Deloitte</div>
+          <p class="tl-desc">Completed a virtual internship working on real-world business problems, analyzed datasets, and created data-driven insights using Excel and advanced visualization techniques.</p>
+          <div class="tl-skills"><span>Data Analysis</span><span>Excel</span><span>Data Visualization</span></div>
+        </div>
+      </div>
+      <div class="timeline-item anim-reveal">
+        <div class="timeline-left"><div class="timeline-date">2024</div><div class="timeline-type">Onsite</div></div>
+        <div class="timeline-connector"><div class="tl-dot purple"></div><div class="tl-line"></div></div>
+        <div class="timeline-card card-3d">
+          <div class="card-glow purple-glow"></div>
+          <div class="tl-title">Cyber Security Intern</div>
+          <div class="tl-company">Tescom Business Solutions</div>
+          <p class="tl-desc">Gained hands-on experience in cybersecurity fundamentals including network security concepts, phishing analysis, and security-related data reporting using Excel.</p>
+          <div class="tl-skills"><span>Networking</span><span>Cyber Security</span><span>Phishing Analysis</span></div>
+        </div>
+      </div>
+      <div class="timeline-item anim-reveal">
+        <div class="timeline-left"><div class="timeline-date">2024</div><div class="timeline-type">Cert</div></div>
+        <div class="timeline-connector"><div class="tl-dot pink"></div><div class="tl-line last"></div></div>
+        <div class="timeline-card card-3d">
+          <div class="card-glow pink-glow"></div>
+          <div class="tl-title">AI Fundamentals Certification</div>
+          <div class="tl-company">IBM</div>
+          <p class="tl-desc">Completed certification in Artificial Intelligence from IBM, covering basic AI concepts, machine learning fundamentals, and real-world applications of AI systems.</p>
+          <div class="tl-skills"><span>AI Basics</span><span>Machine Learning</span><span>IBM Watson</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-container">
+    <div class="section-eyebrow anim-reveal">Get In Touch</div>
+    <h2 class="section-title anim-reveal">Let's Work Together</h2>
+    <div class="section-rule anim-reveal"></div>
+    <div class="contact-grid">
+      <div class="contact-info anim-reveal">
+        <p class="contact-intro">I'm actively looking for internship and collaboration opportunities. Whether you have a project in mind, want to discuss tech, or just want to say hi — my inbox is always open!</p>
+        <div class="contact-links">
+          <a class="contact-link card-3d" href="mailto:abhiyaduvanshi65@gmail.com">
+            <div class="card-glow"></div><div class="contact-icon">📧</div><div><div class="cl-title">Email Me</div><div class="cl-sub">abhiyaduvanshi65@gmail.com</div></div><span class="cl-arrow">→</span>
+          </a>
+          <a class="contact-link card-3d" href="https://github.com/abhiyaduv" target="_blank">
+            <div class="card-glow"></div><div class="contact-icon">⌨</div><div><div class="cl-title">GitHub</div><div class="cl-sub">github.com/abhiyaduv</div></div><span class="cl-arrow">→</span>
+          </a>
+          <a class="contact-link card-3d" href="https://www.linkedin.com/in/abhishek-yadav-698a06338" target="_blank">
+            <div class="card-glow"></div><div class="contact-icon">🔗</div><div><div class="cl-title">LinkedIn</div><div class="cl-sub">Connect with me</div></div><span class="cl-arrow">→</span>
+          </a>
+          <a class="contact-link card-3d" href="tel:+918779607519">
+            <div class="card-glow"></div><div class="contact-icon">📱</div><div><div class="cl-title">Phone</div><div class="cl-sub">+91 8779607519</div></div><span class="cl-arrow">→</span>
+          </a>
+        </div>
+      </div>
+      <div class="anim-reveal">
+        <div class="contact-form-card card-3d">
+          <div class="card-glow"></div>
+          <div id="formContent">
+            <div class="form-title">Send a Message</div>
+            <p class="form-subtitle">AI-powered — you'll get an instant smart reply</p>
+            <div class="form-row">
+              <div class="form-group"><label>Your Name</label><input type="text" id="senderName" placeholder="John Doe" autocomplete="off"></div>
+              <div class="form-group"><label>Email</label><input type="email" id="senderEmail" placeholder="john@example.com" autocomplete="off"></div>
+            </div>
+            <div class="form-group">
+              <label>Reason for Contact</label>
+              <select id="contactReason">
+                <option value="">Select a reason...</option>
+                <option value="internship">Internship Opportunity</option>
+                <option value="project">Project Collaboration</option>
+                <option value="freelance">Freelance Work</option>
+                <option value="feedback">Portfolio Feedback</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Message</label><textarea id="messageText" placeholder="Tell me about your project or opportunity..."></textarea></div>
+            <button class="submit-btn" id="submitBtn" onclick="sendMessage()">
+              <span class="btn-bg"></span><span class="btn-text">Send Message ✉</span><span class="btn-loading"><div class="btn-spinner"></div></span>
+            </button>
+            <div class="ai-response" id="aiResponse">
+              <div class="ai-label"><span class="ai-dot"></span> AI Auto-Reply</div>
+              <div id="aiText"></div>
+            </div>
+          </div>
+          <div class="form-success" id="formSuccess">
+            <div class="success-anim">✓</div>
+            <div class="success-title">Message Sent!</div>
+            <p>Thanks for reaching out. Abhishek will get back to you soon.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">AY</div>
+    <p>Designed &amp; Built with ❤️ by <span>Abhishek Yadav</span> — 2025</p>
+    <div class="footer-links">
+      <a href="https://github.com/abhiyaduv" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/abhishek-yadav-698a06338" target="_blank">LinkedIn</a>
+      <a href="mailto:abhiyaduvanshi65@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ROBOT BUDDY -->
+<div class="robot-wrap" id="robotWrap">
+  <div class="robot-bubble" id="robotBubble">Hi! I'm Abhi's bot 🤖</div>
+  <svg class="robot-svg" id="robotSvg" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="15" y="10" width="70" height="50" rx="14" fill="url(#headGrad)" />
+    <circle class="robot-eye" cx="35" cy="33" r="9" fill="white"/>
+    <circle class="robot-eye" cx="65" cy="33" r="9" fill="white"/>
+    <circle id="pupilL" cx="37" cy="35" r="5" fill="#040812"/>
+    <circle id="pupilR" cx="67" cy="35" r="5" fill="#040812"/>
+    <circle cx="39" cy="33" r="2" fill="white" opacity="0.8"/>
+    <circle cx="69" cy="33" r="2" fill="white" opacity="0.8"/>
+    <path d="M 36 48 Q 50 55 64 48" stroke="#040812" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <line x1="50" y1="10" x2="50" y2="2" stroke="#00d4ff" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="50" cy="2" r="4" fill="#00d4ff">
+      <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <rect x="20" y="65" width="60" height="42" rx="10" fill="url(#bodyGrad)"/>
+    <circle cx="50" cy="84" r="6" fill="#00d4ff" opacity="0.9">
+      <animate attributeName="opacity" values="0.9;0.3;0.9" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <rect x="2" y="67" width="14" height="34" rx="7" fill="#00d4ff" opacity="0.85"/>
+    <rect x="84" y="67" width="14" height="34" rx="7" fill="#00d4ff" opacity="0.85"/>
+    <defs>
+      <linearGradient id="headGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient>
+      <linearGradient id="bodyGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#4f46e5"/></linearGradient>
+    </defs>
+  </svg>
 </div>
-<script>
-const msgs=[
-"Hi, I'm Abhishek's bot 🤖",
-"Welcome to my portfolio!",
-"Check my projects 🚀",
-"Download my resume 📄",
-"Let's connect on LinkedIn 😄"
-];
 
-let i=0;
-setInterval(()=>{
-const b=document.getElementById("bubble");
-b.style.animation="none";
-setTimeout(()=>{
-b.innerText=msgs[i];
-b.style.animation="pop .4s";
-i=(i+1)%msgs.length;
-},100);
-},3000);
-</script>
-<script>
-document.querySelectorAll("a").forEach(link=>{
-if(link.hostname===window.location.hostname){
-link.addEventListener("click",function(e){
-e.preventDefault();
-document.body.classList.add("slide-out");
-setTimeout(()=>{
-window.location=this.href;
-},400);
-});
-}
-});
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
