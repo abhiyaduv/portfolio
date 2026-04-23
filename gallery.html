@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Commerce Gallery — Abhishek Yadav</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
+.gallery-img { width: 100%; border-radius: 16px; border: 1px solid var(--border); transition: all 0.4s; cursor: pointer; }
+.gallery-img:hover { transform: scale(1.03); box-shadow: var(--glow-cyan); border-color: var(--cyan); }
+.back-btn { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 32px; color: var(--cyan); text-decoration: none; font-weight: 600; transition: gap 0.3s; }
+.back-btn:hover { gap: 14px; }
+</style>
+</head>
+<body>
+<div class="bg-orbs"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
+<div class="grid-bg"></div>
+<nav id="navbar">
+  <a class="nav-logo" href="index.html">AY</a>
+  <ul class="nav-links"><li><a href="index.html">← Back to Portfolio</a></li></ul>
+</nav>
+<section style="min-height:auto;padding:120px 40px 80px;">
+  <div style="max-width:1200px;width:100%;margin:0 auto;">
+    <a class="back-btn" href="index.html">← Back</a>
+    <div class="section-label" style="opacity:1;transform:none;margin-bottom:8px;">Project Gallery</div>
+    <h1 class="section-title" style="opacity:1;transform:none;margin-bottom:32px;">E-Commerce Website</h1>
+    <div class="gallery-grid">
+      <img class="gallery-img" src="images/web1.png" alt="E-Commerce Screenshot 1">
+      <img class="gallery-img" src="images/web2.png" alt="E-Commerce Screenshot 2">
+      <img class="gallery-img" src="images/web3.png" alt="E-Commerce Screenshot 3">
+      <img class="gallery-img" src="images/web4.png" alt="E-Commerce Screenshot 4">
+      <img class="gallery-img" src="images/web5.png" alt="E-Commerce Screenshot 5">
+    </div>
+  </div>
+</section>
+<footer style="position:relative;z-index:1;border-top:1px solid var(--border);padding:24px;text-align:center;color:var(--muted);font-size:0.85rem;">
+  Built by <span style="color:var(--cyan)">Abhishek Yadav</span>
+</footer>
+</body>
+</html>
